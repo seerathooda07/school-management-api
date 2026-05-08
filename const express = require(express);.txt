@@ -1,0 +1,94 @@
+const express = require("express");
+
+const app = express();
+
+app.use(express.json());
+
+app.get("/", (req, res) => {
+  res.send("School Management API Running");
+});
+
+app.post("/school", (req, res) => {
+  res.json({
+    message: "Data received",
+    body: req.body
+  });
+});
+
+const PORT = 5000;
+
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+model 
+const { DataTypes } = require("sequelize");
+const sequelize = require("../config/db");
+
+const School = sequelize.define("School", {
+  name: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+  address: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+  latitude: {
+    type: DataTypes.FLOAT,
+    allowNull: false,
+  },
+  longitude: {
+    type: DataTypes.FLOAT,
+    allowNull: false,
+  },
+});
+
+module.exports = School;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+post method 
+http://localhost:5000/api/addSchool
+
+
+
+
+
+
+
+get method
+http://localhost:5000/api/listSchools?latitude=28.7041&longitude=77.1025
